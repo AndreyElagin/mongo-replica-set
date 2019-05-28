@@ -8,10 +8,6 @@ services:
     ports:
       - 27017:27017
     restart: always
-    # environment:
-      # - MONGO_INITDB_ROOT_USERNAME=myUserAdmin
-      # - MONGO_INITDB_ROOT_PASSWORD=abc123
-      # - MONGO_INITDB_DATABASE=admin
     volumes:
       - ./configs:/docker-entrypoint-initdb.d
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs" ]
@@ -23,10 +19,6 @@ services:
     ports:
       - 27018:27017
     restart: always
-    # environment: 
-      # - MONGO_INITDB_ROOT_USERNAME=myUserAdmin
-      # - MONGO_INITDB_ROOT_PASSWORD=abc123
-      # - MONGO_INITDB_DATABASE=admin
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs" ]
     
   mongo2:
@@ -36,8 +28,4 @@ services:
     ports:
       - 27019:27017
     restart: always
-    # environment: 
-      # - MONGO_INITDB_ROOT_USERNAME=myUserAdmin
-      # - MONGO_INITDB_ROOT_PASSWORD=abc123
-      # - MONGO_INITDB_DATABASE=admin
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs" ]
